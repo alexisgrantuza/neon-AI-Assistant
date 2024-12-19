@@ -1,0 +1,197 @@
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  color: #ffffff;
+  padding: 32px;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.btn__circle,
+.btn__text,
+.btn__white-circle {
+  position: absolute;
+}
+
+.btn__circle {
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 100%;
+  width: 100%;
+  box-shadow: 0 0 1px 1px #fff;
+  transition: 0.3s linear;
+}
+
+.btn__white-circle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  background: #ffffff;
+  display: flex;
+  transition: 0.3s ease-in-out;
+}
+
+.btn__white-circle svg {
+  width: 24px;
+  height: 24px;
+  margin: auto;
+}
+
+.btn__text {
+  top: 50%;
+  transform: translate(-90%, -50%);
+  white-space: nowrap;
+  z-index: 2;
+  padding: 24px 8px;
+  transition: 0.3s linear;
+}
+
+.btn:hover .btn__circle {
+  transform: scale(0);
+}
+
+.btn:hover .btn__white-circle {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn:hover .btn__white-circle.active {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.btn:hover .btn__text {
+  transform: translate(-200px, -50%);
+}
+
+/* Content Styles */
+.content {
+  position: fixed;
+  top: 47%;
+  right: 0;
+  z-index: 20;
+}
+
+/* Drawer Styles */
+.drawer {
+  position: relative;
+  top: -30%;
+  right: 0;
+  width: 90%;
+  top: 50%;
+  height: 100%;
+  background: rgba(255, 253, 253, 0.402); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  color: white;
+  transform: translateX(100%) rotate(-90deg);
+  clip-path: polygon(
+    100% 100%,
+    0% 100%,
+    0% 53.86%,
+    1.54% 53.25%,
+    3.08% 52.77%,
+    4.62% 52.44%,
+    6.15% 52.27%,
+    7.69% 52.27%,
+    9.23% 52.43%,
+    10.77% 52.76%,
+    12.31% 53.23%,
+    13.85% 53.84%,
+    15.38% 54.55%,
+    16.92% 55.35%,
+    18.46% 56.19%,
+    20% 57.06%,
+    21.54% 57.92%,
+    23.08% 58.73%,
+    24.62% 59.47%,
+    26.15% 60.11%,
+    27.69% 60.62%,
+    29.23% 60.99%,
+    30.77% 61.2%,
+    32.31% 61.24%,
+    33.85% 61.12%,
+    35.38% 60.83%,
+    36.92% 60.39%,
+    38.46% 59.82%,
+    40% 59.13%,
+    41.54% 58.35%,
+    43.08% 57.52%,
+    44.62% 56.65%,
+    46.15% 55.79%,
+    47.69% 54.96%,
+    49.23% 54.2%,
+    50.77% 53.54%,
+    52.31% 52.99%,
+    53.85% 52.59%,
+    55.38% 52.34%,
+    56.92% 52.25%,
+    58.46% 52.33%,
+    60% 52.58%,
+    61.54% 52.98%,
+    63.08% 53.52%,
+    64.62% 54.18%,
+    66.15% 54.94%,
+    67.69% 55.76%,
+    69.23% 56.63%,
+    70.77% 57.49%,
+    72.31% 58.33%,
+    73.85% 59.11%,
+    75.38% 59.8%,
+    76.92% 60.38%,
+    78.46% 60.82%,
+    80% 61.11%,
+    81.54% 61.24%,
+    83.08% 61.2%,
+    84.62% 60.99%,
+    86.15% 60.63%,
+    87.69% 60.12%,
+    89.23% 59.49%,
+    90.77% 58.75%,
+    92.31% 57.94%,
+    93.85% 57.09%,
+    95.38% 56.22%,
+    96.92% 55.37%,
+    98.46% 54.57%,
+    100% 53.86%
+  );
+}
+
+.drawer.active {
+  position: absolute;
+  transform: translateY(100%) rotate(-90deg);
+  z-index: 100;
+  right: -50%;
+  top: -30%;
+  width: 100%;
+}
+
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
