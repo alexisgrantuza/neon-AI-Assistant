@@ -45,7 +45,7 @@ export function ConversationArea({ hidden }) {
 
       try {
         const response = await fetch(
-          "http://localhost:3001/audio/upload-audio",
+          "https://neon-final-version.onrender.com/audio/upload-audio",
           {
             method: "POST",
             body: formData,
@@ -92,12 +92,12 @@ export function ConversationArea({ hidden }) {
   }, [conversations]);
 
   return (
-    <div className="fixed z-10 left-0 right-0 flex flex-col items-center justify-center h-screen p-4">
+    <div className="fixed z-10 left-0 right-0 flex flex-col items-end justify-center h-screen p-4 mr-24">
       <motion.div
         layout
         initial={{ opacity: 0, y: 50, scale: 0.8 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        className="w-full max-w-xl bg-transparent rounded-lg shadow-lg p-6 flex flex-col justify-between h-[500px]"
+        className="w-full max-w-4xl bg-transparent rounded-lg shadow-lg p-6 flex flex-col justify-between h-[650px]"
       >
         <div
           className="flex-grow overflow-y-auto mb-4 scrollbar-hide"
@@ -144,29 +144,28 @@ export function ConversationArea({ hidden }) {
           )}
           <div ref={messagesEndRef} />
         </div>
-
-        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2">
-          <button
-            onClick={handleMicClick}
-            className={`flex items-center justify-center h-16 w-16 rounded-full shadow-md ${
-              isActive ? "bg-green-500 text-white" : "bg-black text-white"
-            }`}
-            aria-label="Record audio"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              className="bi bi-mic"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
-              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
-            </svg>
-          </button>
-        </div>
       </motion.div>
+      <div className="fixed bottom-6 right-1/4 mx-auto transform -translate-x-1/2">
+        <button
+          onClick={handleMicClick}
+          className={`flex items-center justify-center h-16 w-16 rounded-full shadow-md ${
+            isActive ? "bg-green-500 text-white" : "bg-black text-white"
+          }`}
+          aria-label="Record audio"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            className="bi bi-mic"
+            viewBox="0 0 16 16"
+          >
+            <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
+            <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }
