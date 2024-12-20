@@ -26,7 +26,6 @@ function LoginRoute() {
       {!isLoginOrHomePage && (
         <>
           <Users />
-          <Drawer />
         </>
       )}
 
