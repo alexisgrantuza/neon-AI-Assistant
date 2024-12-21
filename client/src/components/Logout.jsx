@@ -8,7 +8,11 @@ function Logout({ setIsLoggedIn }) {
 
   const handleLogout = () => {
     axios
-      .post("http://localhost:3001/logout", {}, { withCredentials: true })
+      .post(
+        "https://neon-final-version.onrender.com/logout",
+        {},
+        { withCredentials: true }
+      )
       .then((response) => {
         if (response.status === 200) {
           setIsLoggedIn(false);

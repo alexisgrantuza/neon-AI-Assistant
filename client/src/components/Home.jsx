@@ -11,7 +11,9 @@ function Home() {
   useEffect(() => {
     if (!user) {
       axios
-        .get("http://localhost:3001/user", { withCredentials: true })
+        .get("https://neon-final-version.onrender.com/user", {
+          withCredentials: true,
+        })
         .then((response) => {
           if (response.data.user) {
             setUser(response.data.user);

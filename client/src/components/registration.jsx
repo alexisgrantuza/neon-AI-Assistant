@@ -12,14 +12,16 @@ function Login({ setIsLoggedIn, isLoggedIn }) {
     e.preventDefault();
     axios
       .post(
-        "http://localhost:3001/login",
+        "https://neon-final-version.onrender.com/login",
         { name, email, password },
         { withCredentials: true }
       )
       .then((result) => {
         if (result.data === "Success") {
           axios
-            .get("http://localhost:3001/user", { withCredentials: true })
+            .get("https://neon-final-version.onrender.com/user", {
+              withCredentials: true,
+            })
             .then((response) => {
               if (response.data.user) {
                 setIsLoggedIn(true);
