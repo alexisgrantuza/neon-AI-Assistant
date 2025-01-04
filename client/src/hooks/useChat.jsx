@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const backendUrl = "https://neon-final-version.onrender.com";
+const backendUrl = "";
 
 const ChatContext = createContext();
 
@@ -15,7 +15,7 @@ export const ChatProvider = ({ children }) => {
 
   const chat = async (message) => {
     setLoading(true);
-    const data = await fetch(`${backendUrl}/chat`, {
+    const data = await fetch(`https://neon-final-version.onrender.com/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
