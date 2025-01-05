@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://neon-final-version.onrender.com", // Replace with your frontend's URL
+    origin: "https://strong-marshmallow-3d72fc.netlify.app", // Replace with your frontend's URL
     credentials: true,
   })
 );
