@@ -76,6 +76,18 @@ export function ConversationArea({ hidden }) {
     }
   }, [isActive, audioBlob]);
 
+  // Add useEffect for auto-scrolling
+  useEffect(() => {
+    scrollToBottom();
+  }, [conversations]); // This will trigger whenever conversations update
+
+  // Function to scroll to bottom
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   // Function to handle sending messages
   const sendMessage = async () => {
     const text = input.current.value.trim();
@@ -85,7 +97,10 @@ export function ConversationArea({ hidden }) {
       input.current.value = "";
 
       // Reset textarea height to default
-      input.current.style.height = "22px"; // or whatever your default height should be
+      input.current.style.height = "22px";
+
+      // Scroll to bottom after adding user message
+      scrollToBottom();
 
       // Send user's message to the chat API
       await chat(text);
@@ -99,6 +114,8 @@ export function ConversationArea({ hidden }) {
         ...prevConversations,
         { sender: "AI", text: message.text },
       ]);
+      // Scroll to bottom after AI response
+      scrollToBottom();
     }
   }, [message]);
 
@@ -123,7 +140,11 @@ export function ConversationArea({ hidden }) {
       >
         <div
           className="flex-grow overflow-y-auto mb-4 scrollbar-hide"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            scrollBehavior: "smooth", // Add smooth scrolling
+          }}
         >
           {conversations.length === 0 ? (
             <p className="text-white text-center">
@@ -164,6 +185,7 @@ export function ConversationArea({ hidden }) {
               </motion.div>
             ))
           )}
+          {/* This div is used as a reference for scrolling */}
           <div ref={messagesEndRef} />
         </div>
 
