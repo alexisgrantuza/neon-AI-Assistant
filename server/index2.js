@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5174", // Replace with your frontend's URL
+    origin: "https://neon-final-version.onrender.com", // Replace with your frontend's URL
     credentials: true,
   })
 );
