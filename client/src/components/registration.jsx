@@ -12,14 +12,14 @@ function Login({ setIsLoggedIn, isLoggedIn }) {
     e.preventDefault();
     axios
       .post(
-        "https://neon-final-version.onrender.com/login",
+        "https://final-neon-robothinks.onrender.com/login",
         { name, email, password },
         { withCredentials: true }
       )
       .then((result) => {
         if (result.data === "Success") {
           axios
-            .get("https://neon-final-version.onrender.com/user", {
+            .get("https://final-neon-robothinks.onrender.com/user", {
               withCredentials: true,
             })
             .then((response) => {

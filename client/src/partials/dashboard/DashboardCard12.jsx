@@ -17,7 +17,7 @@ function DashboardCard12() {
     const fetchStats = async () => {
       try {
         const response = await fetch(
-          "https://neon-final-version.onrender.com/stats"
+          "https://final-neon-robothinks.onrender.com/stats"
         );
         const data = await response.json();
         setStats(data);

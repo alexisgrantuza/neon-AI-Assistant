@@ -9,7 +9,7 @@ function Logout({ setIsLoggedIn }) {
   const handleLogout = () => {
     axios
       .post(
-        "https://neon-final-version.onrender.com/logout",
+        "https://final-neon-robothinks.onrender.com/logout",
         {},
         { withCredentials: true }
       )

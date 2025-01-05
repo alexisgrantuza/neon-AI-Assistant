@@ -19,7 +19,7 @@ function SignUp() {
   const handleSignup = (e) => {
     e.preventDefault();
     axios
-      .post("https://neon-final-version.onrender.com/signup", {
+      .post("https://final-neon-robothinks.onrender.com/signup", {
         name,
         email,
         password,
