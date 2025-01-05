@@ -2,11 +2,11 @@
   "name": "r3f-virtual-girlfriend-backend",
   "version": "1.0.0",
   "description": "Backend for the virtual girlfriend app",
-  "main": "index2.js",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node index2.js",
-    "dev": "nodemon index2.js --ext js"
+    "start": "node index.js",
+    "dev": "nodemon index.js --ext js"
   },
   "author": "Wawa SENSEI <contact@wawasensei.dev>",
   "dependencies": {
