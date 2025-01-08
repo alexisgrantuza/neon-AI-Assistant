@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://neon-ai-assistant.netlify.app/",
     credentials: true,
   })
 );
