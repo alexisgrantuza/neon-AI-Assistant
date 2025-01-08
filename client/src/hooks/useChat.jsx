@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const backendUrl = "https://final-neon-robothinks.onrender.com";
+const backendUrl = "http://localhost:3001";
 
 const ChatContext = createContext();
 

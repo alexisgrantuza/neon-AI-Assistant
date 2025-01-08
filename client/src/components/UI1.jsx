@@ -47,7 +47,7 @@ export function ConversationArea({ hidden }) {
 
       try {
         const response = await fetch(
-          "https://neon-ai-assistant.onrender.com/audio/upload-audio",
+          "https://final-neon-robothinks.onrender.com/audio/upload-audio",
           {
             method: "POST",
             body: formData,
