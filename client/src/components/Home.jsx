@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     if (!user) {
       axios
-        .get("http://localhost:3001/user", {
+        .get("https://final-neon-robothinks.onrender.com/user", {
           withCredentials: true,
         })
         .then((response) => {
