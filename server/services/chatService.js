@@ -38,7 +38,8 @@ class ChatService {
       const model = new ChatOpenAI({
         apiKey: process.env.OPENAI_API_KEY,
         modelName: "gpt-3.5-turbo",
-        streaming: true,
+        streaming: false,
+        temperature: 0.7,
       });
 
       const retriever = this.vectorStore.asRetriever({

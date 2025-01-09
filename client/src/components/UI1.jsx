@@ -189,47 +189,52 @@ export function ConversationArea({ hidden }) {
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="flex w-full flex-col rounded-[26px] p-1.5 transition-colors bg-[#f4f4f4] dark:bg-neutral-800 justify-center">
-          <div className="flex items-end gap-1.5 md:gap-2">
-            <div className="relative">
-              <button
-                onClick={handleMicClick}
-                className={`flex items-center justify-center h-8 w-8 rounded-full mb-1 ml-1.5 mt-1 ${
-                  isActive
-                    ? "bg-green-500 text-white"
-                    : "text-neutral-900 dark:text-white"
-                }`}
-                aria-label="Attach files"
+        <div className="flex w-full gap-4">
+          <div className="flex items-center">
+            <button
+              onClick={handleMicClick}
+              className={`flex items-center justify-center h-10 w-10 rounded-full ${
+                isActive
+                  ? "bg-green-500 text-white"
+                  : "bg-[#f4f4f4] dark:bg-neutral-800 text-neutral-900 dark:text-white"
+              }`}
+              aria-label="Attach files"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-mic"
+                viewBox="0 0 16 16"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-mic"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
-                  <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex min-w-0 flex-1 flex-col">
+                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
+                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="flex flex-1 items-center rounded-[26px] p-1.5 transition-colors bg-[#f4f4f4] dark:bg-neutral-800">
+            <div className="flex flex-1 items-center">
               <textarea
                 id="prompt-textarea"
                 rows="1"
                 ref={input}
                 placeholder="Type your question..."
-                className="m-0 resize-none border-0 bg-transparent px-0 text-neutral-900 dark:text-white outline-none focus:ring-0 focus-visible:ring-0 max-h-[25vh] mb-2.5"
+                className="w-full resize-none border-0 bg-transparent py-[7px] px-2 text-neutral-900 dark:text-white outline-none focus:ring-0 focus-visible:ring-0 max-h-[25vh]"
                 spellCheck="false"
-                style={{ height: "auto", overflowY: "hidden" }}
+                style={{
+                  height: "32px",
+                  minHeight: "32px",
+                  overflowY: "hidden",
+                }}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
-                    e.preventDefault(); // Prevent default Enter behavior
+                    e.preventDefault();
                     sendMessage();
                   }
                 }}
-                onInput={adjustTextareaHeight} // Adjust height on input
+                onInput={adjustTextareaHeight}
               ></textarea>
             </div>
             <motion.button
@@ -238,7 +243,7 @@ export function ConversationArea({ hidden }) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Send prompt"
-              className="mb-1 me-1 mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black disabled:bg-[#D7D7D7] disabled:text-neutral-400 hover:opacity-70 focus-visible:outline-none"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white dark:bg-white dark:text-black disabled:bg-[#D7D7D7] disabled:text-neutral-400 hover:opacity-70 focus-visible:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
