@@ -19,7 +19,7 @@ function SignUp() {
   const handleSignup = (e) => {
     e.preventDefault();
     axios
-      .post("https://final-neon-robothinks.onrender.com/signup", {
+      .post("http://localhost:3001/signup", {
         name,
         email,
         password,

@@ -16,9 +16,7 @@ function DashboardCard12() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch(
-          "https://final-neon-robothinks.onrender.com/stats"
-        );
+        const response = await fetch("http://localhost:3001/stats");
         const data = await response.json();
         setStats(data);
 

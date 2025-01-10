@@ -20,14 +20,14 @@ function Login({ setIsLoggedIn, isLoggedIn }) {
     e.preventDefault();
     axios
       .post(
-        "https://final-neon-robothinks.onrender.com/login",
+        "http://localhost:3001/login",
         { name, email, password }, // Pass username, email, and password
         { withCredentials: true }
       )
       .then((result) => {
         if (result.data === "Success") {
           axios
-            .get("https://final-neon-robothinks.onrender.com/user", {
+            .get("http://localhost:3001/user", {
               withCredentials: true,
             })
             .then((response) => {

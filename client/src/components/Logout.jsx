@@ -8,11 +8,7 @@ function Logout({ setIsLoggedIn }) {
 
   const handleLogout = () => {
     axios
-      .post(
-        "https://final-neon-robothinks.onrender.com/logout",
-        {},
-        { withCredentials: true }
-      )
+      .post("http://localhost:3001/logout", {}, { withCredentials: true })
       .then((response) => {
         if (response.status === 200) {
           setIsLoggedIn(false);
